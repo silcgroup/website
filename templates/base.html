@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>$title$</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  </head>
+  <body>
+    <div id="top-wrap">
+      <div id="top">
+        <h1>$title$</h1>
+      </div>
+    </div>
+    <div id="middle-wrap">
+    <div id="top-border"></div>
+      <ul id="nav">
+        <li><a$if(is-index)$ class="active" $endif$ href="/">Home</a></li>
+        <li><a$if(is-projects)$ class="active" $endif$ href="/projects">Projects</a></li>
+        <li><a$if(is-publications)$ class="active" $endif$ href="/publications">Publications</a></li>
+        <li><a$if(is-people)$ class="active" $endif$ href="/people">People</a></li>
+      </ul>
+      <div id="middle">
+        $body$
+      </div>
+    </div>
+    <div id="bottom-wrap">
+      <div id="bottom-border"></div>
+      <div id="bottom">
+        <a href="/">SILC</a> is part of the <a href="http://prl.ccs.neu.edu" target="_blank">Programming Research Laboratory</a> at <a href="http://ccs.neu.edu" target="_blank">Northeastern University</a>.
+      </div>
+    </div>
+
+  </body>
+</html>
