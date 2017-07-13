@@ -1,7 +1,8 @@
 REF=`git rev-parse HEAD`
 BRANCH=`git branch`
 
-git stash
+git branch -D autodeploy
+git checkout -b autodeploy
 
 ./site.hs build
 rsync -a --filter='P _site/'      \
@@ -11,11 +12,12 @@ rsync -a --filter='P _site/'      \
       --filter='P .stack-work' \
       --delete-excluded        \
       _site/ .
-git checkout deploy
-git add -A
-git commit -m "Deploy $REV"
-git push deploy deploy:master
-git checkout $BRANCH
-git branch -D deploy
 
-git stash pop
+git reset --soft deploy/master
+git add -A
+git commit -m "Deploy $REF"
+
+git push deploy autodeploy:master
+
+git checkout $BRANCH
+git branch -D autodeploy
