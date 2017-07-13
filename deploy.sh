@@ -1,5 +1,5 @@
 REF=`git rev-parse HEAD`
-BRANCH=`git branch`
+BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 git branch -D autodeploy
 git checkout -b autodeploy
@@ -15,7 +15,7 @@ rsync -a --filter='P _site/'      \
 
 git reset --soft deploy/master
 git add -A
-git commit -m "Deploy $REF"
+git commit -m "Deploy silcgroup/website@$REF"
 
 git push deploy autodeploy:master
 
