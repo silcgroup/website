@@ -1,0 +1,10 @@
+- title: "Theorems for Free for Free: Parametricity, With and Without Types."
+  authors: Amal Ahmed, Dustin Jamner, Jeremy Siek, and Philip Wadler
+  venue: <em>22nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’17)</em>, Oxford, UK, September 2017
+
+- title: "FunTAL: Reasonably Mixing a Functional Language with Assembly."
+  url: "https://dbp.io/pubs/2017/funtal.pdf"
+  authors: Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed
+  venue: <em>ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’17)</em>, Barcelona, Spain, June 2017.
+  extra: '<a href="https://dbp.io/pubs/2017/funtal-tr.pdf">Technical appendix</a>, April 2017.'
+
