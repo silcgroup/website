@@ -7,8 +7,6 @@ login silc-bot
 password $GH_TOKEN
 EOF
 
-c6d20c318057cc611022da4c5c2280a467938956
-
 rsync -a --filter='P _site/'      \
       --filter='P _cache/'     \
       --filter='P .git/'       \
