@@ -2,18 +2,20 @@ language: generic
 sudo: false
 cache:
   directories:
-  - "$HOME/.stack-work"
+  - "$HOME/.stack"
 env:
   global:
   - secure: RH0CQDqYWvpwKO6qXXaazZTrJ0b+umKHOudwtUDWZDjGH/+Sq34zZ7j6vyrVmNGQQkHyOM2A7N07glb7ADzlD93KETI58XUN+n7y9GgZ5wzkQKuuTS4nRw9G4OSOCvOQYqxvlQAXU4EVArGkyXf9ipTMJdZSX0ZiGDR6aUghecrjgWRsxo/5gTeP+2cRkuszFYkyyOGlhtpO2+WL88hUMuUpsVNvgR29/K556jl5EA8467TL/CLtcBxNlLEvv1e2jNTVNgc6qJ+Om7YUXs/c3v3bUbSrY4gE5X0sV31ouWW5zHM9lo480aA43rqoHmRtSWjs7dfreOk1jzXZ3sCwLC4ESnwoZDK/tMxDIYqsgz3IANbipi+NMajWHkxGxVk3xtpAhKqE2TgGnQlQjEumOr1R1mKTHYStgEVcMp9JLMrHxfjDD85vpIYZIcDsHBJV/XrQViTlanZJAn0XVbGM94mx+p3B6ivb4sYEaPQKWNAt03PdRHcPZtd5giY48VUwpguVWObnF425C9RmbPJQQ9CrXU4saK6pm7oPVU48HR05Xn78zRvNYdNQ90/YMgEzn/HyqeMgHDRSFuW4Pdj76sgtxSJNr3DrixE5K5Ofmx6/iSMSdP+9wQydE5+8QyefA2eR/ghDc8u7Pr/dbbaVldnebcaOW7NUROSJxJwJedk=
-addons:
-  apt:
-    packages:
-    - haskell-stack
+
+before_install:
+  - mkdir -p ~/.local/bin
+  - export PATH=$HOME/.local/bin:$PATH
+  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+
 install:
-- "./site.hs build"
+  - "./site.hs build"
 script:
-- echo 0
+  - echo 0
 deploy:
   skip_cleanup: true
   provider: script
