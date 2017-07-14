@@ -1,30 +1,30 @@
 - title: "Theorems for Free for Free: Parametricity, With and Without Types."
   authors: Amal Ahmed, Dustin Jamner, Jeremy Siek, and Philip Wadler
-  venue: <em>22nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’17)</em>, Oxford, UK, September 2017
+  venue: _22nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’17)_, Oxford, UK, September 2017
 
 - title: "FunTAL: Reasonably Mixing a Functional Language with Assembly."
   url: "https://dbp.io/pubs/2017/funtal.pdf"
   authors: Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed
-  venue: <em>ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’17)</em>, Barcelona, Spain, June 2017
-  extra: '<a href="https://dbp.io/pubs/2017/funtal-tr.pdf">Technical appendix</a>, April 2017.'
+  venue: _ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’17)_, Barcelona, Spain, June 2017
+  extra: '[Technical appendix](https://dbp.io/pubs/2017/funtal-tr.pdf), April 2017.'
 
 - title: "Linking Types for Multi-Language Software: Have Your Cake and Eat It Too."
   url: "https://dbp.io/pubs/2017/linking-types.pdf"
   authors: Daniel Patterson and Amal Ahmed.
-  venue: "<em>SNAPL: Summit on Advances in Programming Languages (SNAPL'17)</em>, May 2017"
+  venue: "_SNAPL: Summit on Advances in Programming Languages (SNAPL'17)_, May 2017"
 
 - title: Fully Abstract Compilation via Universal Embedding.
   url: "http://www.ccs.neu.edu/home/amal/papers/fabcc.pdf"
   authors: Max New, William J. Bowman, and Amal Ahmed
-  venue: <em>21st ACM SIGPLAN International Conference on Functional Programming (ICFP '16)</em>, Nara, Japan, September 2016.
-  extra: '<a href="http://www.ccs.neu.edu/home/amal/papers/fabcc-tr.pdf">Technical report</a>, July 2016.'
+  venue: _21st ACM SIGPLAN International Conference on Functional Programming (ICFP '16)_, Nara, Japan, September 2016.
+  extra: '[Technical report](http://www.ccs.neu.edu/home/amal/papers/fabcc-tr.pdf), July 2016.'
 
 - title: Noninterference for Free.
   url: "http://www.ccs.neu.edu/home/amal/papers/nifree.pdf"
   authors: William J. Bowman and Amal Ahmed
-  venue: <em>20th ACM SIGPLAN International Conference on Functional Programming (ICFP '15)</em>, Vancouver, Canada, September 2015
+  venue: _20th ACM SIGPLAN International Conference on Functional Programming (ICFP '15)_, Vancouver, Canada, September 2015
 
 - title: Verified Compilers for a Multi-Language World.
   url: "http://www.ccs.neu.edu/home/amal/papers/verifcomp.pdf"
   authors: Amal Ahmed
-  venue: "<em>SNAPL: Summit on Advances in Programming Languages (SNAPL'15)</em>, May 2015"
+  venue: "_SNAPL: Summit on Advances in Programming Languages (SNAPL'15)_, May 2015"

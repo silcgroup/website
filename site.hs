@@ -4,11 +4,15 @@
 {-# LANGUAGE FlexibleContexts #-}
 module Main where
 
+import Data.Text.Lazy (toStrict, fromStrict)
+import qualified Data.Text as T
 import Data.Text (Text, unpack)
 import System.FilePath (splitExtension, (<.>), (</>))
 import Data.Monoid (mempty, (<>))
 import Data.Aeson
 import Data.Aeson.Types
+import Text.Markdown
+import Text.Blaze.Html.Renderer.Text (renderHtml)
 import Data.Yaml
 import Hakyll
 
@@ -69,10 +73,15 @@ main = hakyll $ do
   match "templates/*" $ compile templateBodyCompiler
 
 
+-- NOTE(dbp 2017-07-14): The blaze html library makes it difficult (possibly
+-- impossible?) to easily manipulate tags, so since we are really just trying to get rid of an extraneous wrapping <p>, we render and then do it in text.
+stripP :: Text -> Text
+stripP t = if "<p>" `T.isPrefixOf` t && "</p>" `T.isSuffixOf` t then T.dropEnd 4 $ T.drop 3 t else t
+md s = stripP . toStrict . renderHtml . markdown def . fromStrict $ s
 -- | Build field from string / getter function
-tfield s f = field s (return . unpack . f . itemBody)
+tfield s f = field s (return . unpack . md . f . itemBody)
 -- | Build (potentially missing) optional field from string / getter function
-mfield s f = field s (maybe (fail "") (return . unpack) . f . itemBody)
+mfield s f = field s (maybe (fail "") (return . unpack . md) . f . itemBody)
 
 compileYaml f = compile $ do
       pubpath <- getResourceFilePath
