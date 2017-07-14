@@ -1,5 +1,5 @@
 #!/usr/bin/env stack
--- stack --resolver lts-8.22 --install-ghc runghc --package hakyll --package yaml
+-- stack --resolver lts-8.22 --install-ghc runghc --package hakyll --package yaml --package markdown
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE FlexibleContexts #-}
 module Main where
