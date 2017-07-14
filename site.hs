@@ -24,6 +24,14 @@ main = hakyll $ do
     route   idRoute
     compile copyFileCompiler
 
+  -- Compile all markdown files
+  match "*.markdown" $ do
+    route $ composeRoutes (setExtension ".html") appendIndex
+
+    compile $ pandocCompiler
+      >>= loadAndApplyTemplate "templates/base.html" defaultContext
+      >>= relativizeUrls
+
   -- Build publications page from YAML data
   match "publications.yaml" $ do
     route $ composeRoutes (setExtension ".html") appendIndex
@@ -39,6 +47,7 @@ main = hakyll $ do
                  <> defaultContext
       makeItem "" >>= loadAndApplyTemplate "templates/publications.html" pubsCtxt
                   >>= loadAndApplyTemplate "templates/base.html" defCtxt
+                  >>= relativizeUrls
 
   -- Build people page from YAML data
   match "people.yaml" $ do
@@ -54,14 +63,7 @@ main = hakyll $ do
                  <> defaultContext
       makeItem "" >>= loadAndApplyTemplate "templates/people.html" peopleCtxt
                   >>= loadAndApplyTemplate "templates/base.html" defCtxt
-
-  -- Compile all markdown files
-  match "*.markdown" $ do
-    route $ composeRoutes (setExtension ".html") appendIndex
-
-    compile $ pandocCompiler
-      >>= loadAndApplyTemplate "templates/base.html" defaultContext
-      >>= relativizeUrls
+                  >>= relativizeUrls
 
   -- Build templates (used by the above)
   match "templates/*" $ compile templateBodyCompiler
