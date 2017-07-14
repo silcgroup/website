@@ -24,7 +24,7 @@ git fetch deploy
 REV="** deploy silcgroup/website@$TRAVIS_COMMIT"
 git fetch deploy
 git reset --soft deploy/master
-git add .
+git add -A
 git status
 git commit -m "$REV"
 
