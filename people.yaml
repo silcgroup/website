@@ -1,0 +1,34 @@
+- name: Amal Ahmed
+  title: Associate Professor
+  homepage: "http://www.ccs.neu.edu/home/amal/"
+  photo: /static/img/people/amal.jpg
+
+- name: Gabriel Scherer
+  title: Postdoc
+  homepage: "http://www.ccs.neu.edu/home/gasche/"
+  photo: /static/img/people/gabriel_scherer.jpg
+
+- name: William Bowman
+  title: PhD Student
+  homepage: "https://www.williamjbowman.com"
+  photo: /static/img/people/william_bowman.jpg
+
+- name: Max New
+  title: PhD Student
+  homepage: "http://maxsnew.github.io"
+  photo: /static/img/people/max_new.jpg
+
+- name: Daniel Patterson
+  title: PhD Student
+  homepage: "https://dbp.io"
+  photo: /static/img/people/daniel_patterson.jpg
+
+- name: Aaron Weiss
+  title: PhD Student
+  homepage: "https://aaronweiss.us"
+  photo: /static/img/people/aaron_weiss.jpg
+
+- name: Hyeyoung Shin
+  title: PhD Student
+  homepage: "http://silc.ccs.neu.edu"
+  photo: /static/img/people/unknown.png

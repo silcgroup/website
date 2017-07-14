@@ -38,7 +38,7 @@ h3 {
 
 #top-border {
     background: linear-gradient(180deg, #668284, rgba(0,0,0,0));
-    height: 5px;
+    height: 7px;
 }
 
 #top {
@@ -88,7 +88,7 @@ ul#nav {
 
 #bottom-border {
     background: linear-gradient(0deg, rgba(0,0,0,0), #668284);
-    height: 5px;
+    height: 7px;
 }
 
 #bottom {
@@ -97,3 +97,34 @@ ul#nav {
     margin: 0 auto;
     text-align: center;
 }
+
+.clearfix {
+    clear: both;
+}
+
+/* PAGE SPECIFIC */
+
+ul.publications li {
+    padding-bottom: 25px;
+}
+
+ul.people {
+    list-style: none;
+    padding: 0;
+}
+
+ul.people li img {
+    float: left;
+    padding-right: 20px;
+}
+
+ul.people li {
+    box-shadow: 0px 0px 5px black;
+    padding: 0;
+    margin: 30px 0;
+}
+
+ul.people li .desc {
+    padding: 20px;
+}
+

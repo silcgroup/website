@@ -43,6 +43,26 @@ main = hakyll $ do
           makeItem "" >>= loadAndApplyTemplate "templates/publications.html" pubsCtxt
                       >>= loadAndApplyTemplate "templates/base.html" defCtxt
 
+  match "people.yaml" $ do
+    route $ composeRoutes (setExtension ".html") appendIndex
+    compile $ do
+      path <- getResourceFilePath
+      res <- unsafeCompiler $ decodeFileEither path
+      case res of
+        Left err -> error $ "Couldn't parse people.yaml. Error: " <> show err
+        Right people -> do
+          let personCtxt = field "name" (return . unpack . rName . itemBody)
+                        <> field "role" (return . unpack . rTitle . itemBody)
+                        <> field "homepage" (return . unpack . rHomepage . itemBody)
+                        <> field "photo" (return . unpack . rPhoto . itemBody)
+          let peopleCtxt = listField "people" personCtxt (return $ map (Item "") people)
+          let defCtxt = constField "is-people" "true"
+                     <> constField "title" "SILC: People"
+                     <> defaultContext
+          makeItem "" >>= loadAndApplyTemplate "templates/people.html" peopleCtxt
+                      >>= loadAndApplyTemplate "templates/base.html" defCtxt
+
+
 
   -- Compile markdown files
   match "*.markdown" $ do
@@ -70,6 +90,23 @@ instance FromJSON Publication where
     v .:  "venue"    <*>
     v .:? "extra"
   parseJSON invalid    = typeMismatch "Publication" invalid
+
+
+data Person = Person { rName :: Text
+                     , rTitle :: Text
+                     , rHomepage :: Text
+                     , rPhoto :: Text
+                     }
+
+instance FromJSON Person where
+  parseJSON (Object v) =
+    Person      <$>
+    v .: "name"     <*>
+    v .: "title"    <*>
+    v .: "homepage" <*>
+    v .: "photo"
+  parseJSON invalid    = typeMismatch "Person" invalid
+
 
 appendIndex :: Routes
 appendIndex = customRoute $
