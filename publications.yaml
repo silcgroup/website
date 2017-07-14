@@ -5,6 +5,26 @@
 - title: "FunTAL: Reasonably Mixing a Functional Language with Assembly."
   url: "https://dbp.io/pubs/2017/funtal.pdf"
   authors: Daniel Patterson, Jamie Perconti, Christos Dimoulas, and Amal Ahmed
-  venue: <em>ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’17)</em>, Barcelona, Spain, June 2017.
+  venue: <em>ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’17)</em>, Barcelona, Spain, June 2017
   extra: '<a href="https://dbp.io/pubs/2017/funtal-tr.pdf">Technical appendix</a>, April 2017.'
 
+- title: "Linking Types for Multi-Language Software: Have Your Cake and Eat It Too."
+  url: "https://dbp.io/pubs/2017/linking-types.pdf"
+  authors: Daniel Patterson and Amal Ahmed.
+  venue: "<em>SNAPL: Summit on Advances in Programming Languages (SNAPL'17)</em>, May 2017"
+
+- title: Fully Abstract Compilation via Universal Embedding.
+  url: "http://www.ccs.neu.edu/home/amal/papers/fabcc.pdf"
+  authors: Max New, William J. Bowman, and Amal Ahmed
+  venue: <em>21st ACM SIGPLAN International Conference on Functional Programming (ICFP '16)</em>, Nara, Japan, September 2016.
+  extra: '<a href="http://www.ccs.neu.edu/home/amal/papers/fabcc-tr.pdf">Technical report</a>, July 2016.'
+
+- title: Noninterference for Free.
+  url: "http://www.ccs.neu.edu/home/amal/papers/nifree.pdf"
+  authors: William J. Bowman and Amal Ahmed
+  venue: <em>20th ACM SIGPLAN International Conference on Functional Programming (ICFP '15)</em>, Vancouver, Canada, September 2015
+
+- title: Verified Compilers for a Multi-Language World.
+  url: "http://www.ccs.neu.edu/home/amal/papers/verifcomp.pdf"
+  authors: Amal Ahmed
+  venue: "<em>SNAPL: Summit on Advances in Programming Languages (SNAPL'15)</em>, May 2015"
