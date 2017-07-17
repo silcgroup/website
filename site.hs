@@ -18,6 +18,11 @@ import Hakyll
 
 main :: IO ()
 main = hakyll $ do
+  -- Copy CNAME
+  match "CNAME" $ do
+    route   idRoute
+    compile copyFileCompiler
+
   -- Compress CSS
   match "css/*" $ do
     route   idRoute
