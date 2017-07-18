@@ -18,12 +18,6 @@ a:hover {
     text-decoration: underline;
 }
 
-@media (max-width:750px) {
-    #top h1 {
-        max-width: 240px;
-    }
-}
-
 h1, h2, ul#nav {
     font-family: 'Montserrat', sans-serif;
 }
@@ -120,3 +114,26 @@ ul.people li .desc {
     padding: 20px;
 }
 
+/* Make Phones Great Again */
+
+@media (max-width:750px) {
+    #top h1 {
+        max-width: 240px;
+    }
+
+    #top .content {
+        text-align: left;
+    }
+
+    #top {
+        margin: auto;
+    }
+
+    #top .content {
+        display: inline-block;
+    }
+
+    #middle-wrap {
+        padding: 0.5em;
+    }
+}
