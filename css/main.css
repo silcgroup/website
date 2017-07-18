@@ -18,6 +18,11 @@ a:hover {
     text-decoration: underline;
 }
 
+@media (max-width:750px) {
+    #top h1 {
+        max-width: 240px;
+    }
+}
 
 h2 {
     color: #3e4b4c;
@@ -50,7 +55,7 @@ h3 {
 }
 
 ul#nav {
-    padding: 0;
+    padding: 0 10px;
     max-width: 800px;
     margin: 20px auto;
     margin-bottom: 30px;
@@ -79,6 +84,7 @@ ul#nav {
 #middle {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 #bottom-border {
