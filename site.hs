@@ -18,8 +18,8 @@ import Hakyll
 
 main :: IO ()
 main = hakyll $ do
-  -- Copy CNAME
-  match "CNAME" $ do
+  -- Copy CNAME and favicon.ico
+  match ("CNAME" .||. "favicon.ico") $ do
     route   idRoute
     compile copyFileCompiler
 
