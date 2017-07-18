@@ -6,12 +6,12 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 1.2em;
     line-height: 1.5em;
-    background-color: #EEEEEE;
+    background-color: #FBFBFB;
 }
 
 a {
     text-decoration: none;
-    color: #7B3B3B;
+    color: #A50F00;
 }
 
 a:hover {
@@ -24,9 +24,13 @@ a:hover {
     }
 }
 
+h1, h2, ul#nav {
+    font-family: 'Montserrat', sans-serif;
+}
+
 h2 {
-    color: #3e4b4c;
-    border-bottom: 2px solid #668284;
+    color: #232B2B;
+    border-bottom: 2px solid #232B2B;
 }
 
 h3 {
@@ -37,15 +41,11 @@ h3 {
 /* STRUCTURE */
 
 #top-wrap {
-    padding: 10px;
-}
-
-#top-border {
-    background: linear-gradient(180deg, #AEAEAE, rgba(0,0,0,0));
-    height: 7px;
+    padding-top: 10px;
 }
 
 #top {
+    text-align: center;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -55,6 +55,7 @@ h3 {
 }
 
 ul#nav {
+    text-align: center;
     padding: 0 10px;
     max-width: 800px;
     margin: 20px auto;
@@ -71,14 +72,7 @@ ul#nav {
 
 #nav a:hover, #nav a.active {
     text-decoration: none;
-    border-bottom: 3px solid #7B3B3B;
-}
-
-#middle-wrap {
-    background-color: white;
-    border-bottom: 1px solid white; /* NOTE(dbp 2017-07-13): Prevent margin collapsing
-                                         and thus non-white background leaking
-                                         above/below gradients. */
+    border-bottom: 3px solid #A50F00;
 }
 
 #middle {
@@ -87,12 +81,8 @@ ul#nav {
     padding: 0 10px;
 }
 
-#bottom-border {
-    background: linear-gradient(0deg, rgba(0,0,0,0), #AEAEAE);
-    height: 7px;
-}
-
 #bottom {
+    border-top: 2px solid #232B2B;
     max-width: 800px;
     padding: 10px;
     margin: 0 auto;
@@ -107,6 +97,7 @@ ul#nav {
 
 ul.publications li {
     padding-bottom: 25px;
+    list-style: none;
 }
 
 ul.people {
@@ -116,13 +107,13 @@ ul.people {
 
 ul.people li img {
     float: left;
-    padding-right: 20px;
+    margin-right: 20px;
+    border-radius: 8em;
 }
 
 ul.people li {
-    box-shadow: 0px 0px 5px 2px #668284;
-    padding: 0;
-    margin: 30px 0;
+    padding: 0 1em;
+    margin: 48px 0;
 }
 
 ul.people li .desc {
