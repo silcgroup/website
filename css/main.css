@@ -113,6 +113,8 @@ ul.people li img {
 ul.people li {
     padding: 0 1em;
     margin: 48px 0;
+    align-items: center;
+    display: flex;
 }
 
 ul.people li .desc {
