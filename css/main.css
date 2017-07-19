@@ -105,7 +105,6 @@ ul.people {
 }
 
 ul.people li img {
-    float: left;
     margin-right: 20px;
     border-radius: 8em;
 }
@@ -142,5 +141,10 @@ ul.people li .desc {
 
     #middle-wrap {
         padding: 0.5em;
+    }
+
+    ul.people li {
+        display: inherit;
+        text-align: center;
     }
 }
