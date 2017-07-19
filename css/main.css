@@ -24,6 +24,7 @@ h1, h2, ul#nav {
 
 h2 {
     color: #232B2B;
+    padding-bottom: 3px;
     border-bottom: 2px solid #232B2B;
 }
 
