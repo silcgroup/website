@@ -4,9 +4,10 @@
   photo: /static/img/people/amal.jpg
 
 - name: Gabriel Scherer
-  title: Postdoc
+  title: Former Postdoc
   homepage: "http://www.ccs.neu.edu/home/gasche/"
   photo: /static/img/people/gabriel_scherer.jpg
+  current: false
 
 - name: William Bowman
   title: PhD Student

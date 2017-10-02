@@ -1,7 +1,22 @@
 <h2>Current Members</h2>
 
 <ul class="people">
-  $for(people)$
+  $for(current-people)$
+  <li>
+    <img src="$photo$" alt="$name$"/>
+    <div class="desc">
+      <strong>$name$</strong><br/>
+      $role$<br/>
+      <a href="$homepage$">$homepage$</a>
+    </div>
+    <div class="clearfix"></div>
+  </li>
+  $endfor$
+</ul>
+<h2>Former Members</h2>
+
+<ul class="people">
+  $for(former-people)$
   <li>
     <img src="$photo$" alt="$name$"/>
     <div class="desc">
