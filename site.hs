@@ -8,7 +8,6 @@ import Data.Text.Lazy (toStrict, fromStrict)
 import qualified Data.Text as T
 import Data.Text (Text, unpack)
 import System.FilePath (splitExtension, (<.>), (</>))
-import qualified Data.List as List
 import Data.Monoid (mempty, (<>))
 import Data.Aeson
 import Data.Aeson.Types
@@ -67,9 +66,7 @@ main = hakyll $ do
                     <> tfield "role" rTitle
                     <> tfield "homepage" rHomepage
                     <> tfield "photo" rPhoto
-      let (currentPeople, formerPeople) = List.partition (rCurrent . itemBody) people
-      let peopleCtxt = listField "current-people" personCtxt (return currentPeople)
-                       <> listField "former-people" personCtxt (return formerPeople)
+      let peopleCtxt = listField "people" personCtxt (return people)
       let defCtxt = constField "is-people" "true"
                  <> constField "title" "SILC: People"
                  <> defaultContext
@@ -79,6 +76,7 @@ main = hakyll $ do
 
   -- Build templates (used by the above)
   match "templates/*" $ compile templateBodyCompiler
+
 
 -- NOTE(dbp 2017-07-14): The blaze html library makes it difficult (possibly
 -- impossible?) to easily manipulate tags, so since we are really just trying to get rid of an extraneous wrapping <p>, we render and then do it in text.
@@ -119,7 +117,6 @@ data Person = Person { rName :: Text
                      , rTitle :: Text
                      , rHomepage :: Text
                      , rPhoto :: Text
-                     , rCurrent :: Bool -- ^ True if current member, False if former member
                      }
 
 instance FromJSON Person where
@@ -128,12 +125,7 @@ instance FromJSON Person where
     v .: "name"     <*>
     v .: "title"    <*>
     v .: "homepage" <*>
-    v .: "photo"    <*>
-    (trueIfMissing <$> (v .:? "current"))
-    where
-      trueIfMissing :: Maybe Bool -> Bool
-      trueIfMissing (Just b) = b
-      trueIfMissing Nothing  = True
+    v .: "photo"
   parseJSON invalid    = typeMismatch "Person" invalid
 
 
