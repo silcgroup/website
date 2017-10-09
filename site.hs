@@ -10,11 +10,11 @@ import Data.Text (Text, unpack)
 import System.FilePath (splitExtension, (<.>), (</>))
 import qualified Data.List as List
 import Data.Monoid (mempty, (<>))
-import Data.Aeson
-import Data.Aeson.Types
-import Text.Markdown
+import Data.Aeson.Types (typeMismatch)
+import qualified Text.Markdown as MD
 import Text.Blaze.Html.Renderer.Text (renderHtml)
-import Data.Yaml
+import qualified Data.Yaml as Yaml
+import Data.Yaml ((.:), (.:?), FromJSON)
 import Hakyll
 
 main :: IO ()
@@ -88,7 +88,7 @@ stripP :: Text -> Text
 stripP t = if "<p>" `T.isPrefixOf` t && "</p>" `T.isSuffixOf` t then T.dropEnd 4 $ T.drop 3 t else t
 
 md :: Text -> Text
-md s = stripP . toStrict . renderHtml . markdown def . fromStrict $ s
+md s = stripP . toStrict . renderHtml . MD.markdown MD.def . fromStrict $ s
 
 -- | Build field from string / getter function
 tfield :: String -> (a -> Text) -> Context a
@@ -101,7 +101,7 @@ mfield s f = field s (maybe (fail "") (return . unpack . md) . f . itemBody)
 yamlCompiler :: (FromJSON a) => Compiler (Item a)
 yamlCompiler = do
       pubpath <- getResourceFilePath
-      res <- unsafeCompiler $ decodeFileEither pubpath
+      res <- unsafeCompiler $ Yaml.decodeFileEither pubpath
       case res of
         Left err -> error $ "Couldn't parse " <> pubpath <> ". Error: " <> show err
         Right parsed -> return $ Item "" parsed
@@ -114,7 +114,7 @@ data Publication = Publication { pTitle :: Text
                                }
 
 instance FromJSON Publication where
-  parseJSON (Object v) =
+  parseJSON (Yaml.Object v) =
     Publication      <$>
     v .:  "title"    <*>
     v .:? "url"      <*>
@@ -132,7 +132,7 @@ data Person = Person { rName :: Text
                      }
 
 instance FromJSON Person where
-  parseJSON (Object v) =
+  parseJSON (Yaml.Object v) =
     Person      <$>
     v .: "name"     <*>
     v .: "title"    <*>
