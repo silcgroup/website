@@ -45,7 +45,8 @@ main = hakyll $ do
   -- Build publications page from YAML data
   match "publications.yaml" $ do
     route $ composeRoutes (setExtension ".html") appendIndex
-    compileYaml $ \pubs -> do
+    compile $ do
+      pubs <- sequenceA <$> yamlCompiler
       let pubCtxt = tfield "title" pTitle
                  <> mfield "url" pUrl
                  <> tfield "authors" pAuthors
@@ -62,7 +63,8 @@ main = hakyll $ do
   -- Build people page from YAML data
   match "people.yaml" $ do
     route $ composeRoutes (setExtension ".html") appendIndex
-    compileYaml $ \people -> do
+    compile $ do
+      people <- sequenceA <$> yamlCompiler
       let personCtxt = tfield "name" rName
                     <> tfield "role" rTitle
                     <> tfield "homepage" rHomepage
@@ -84,18 +86,25 @@ main = hakyll $ do
 -- impossible?) to easily manipulate tags, so since we are really just trying to get rid of an extraneous wrapping <p>, we render and then do it in text.
 stripP :: Text -> Text
 stripP t = if "<p>" `T.isPrefixOf` t && "</p>" `T.isSuffixOf` t then T.dropEnd 4 $ T.drop 3 t else t
+
+md :: Text -> Text
 md s = stripP . toStrict . renderHtml . markdown def . fromStrict $ s
+
 -- | Build field from string / getter function
+tfield :: String -> (a -> Text) -> Context a
 tfield s f = field s (return . unpack . md . f . itemBody)
+
 -- | Build (potentially missing) optional field from string / getter function
+mfield :: String -> (a -> Maybe Text) -> Context a
 mfield s f = field s (maybe (fail "") (return . unpack . md) . f . itemBody)
 
-compileYaml f = compile $ do
+yamlCompiler :: (FromJSON a) => Compiler (Item a)
+yamlCompiler = do
       pubpath <- getResourceFilePath
       res <- unsafeCompiler $ decodeFileEither pubpath
       case res of
         Left err -> error $ "Couldn't parse " <> pubpath <> ". Error: " <> show err
-        Right parsed -> f (map (Item "") parsed)
+        Right parsed -> return $ Item "" parsed
 
 data Publication = Publication { pTitle :: Text
                                , pUrl :: Maybe Text
