@@ -4,12 +4,14 @@
 {-# LANGUAGE FlexibleContexts #-}
 module Main where
 
+import qualified Data.ByteString.Lazy as LBS
 import Data.Text.Lazy (toStrict, fromStrict)
 import qualified Data.Text as T
 import Data.Text (Text, unpack)
 import System.FilePath (splitExtension, (<.>), (</>))
 import qualified Data.List as List
 import Data.Monoid (mempty, (<>))
+import Data.Traversable
 import Data.Aeson.Types (typeMismatch)
 import qualified Text.Markdown as MD
 import Text.Blaze.Html.Renderer.Text (renderHtml)
@@ -45,42 +47,57 @@ main = hakyll $ do
   -- Build publications page from YAML data
   match "publications.yaml" $ do
     route $ composeRoutes (setExtension ".html") appendIndex
-    compile $ do
-      pubs <- sequenceA <$> yamlCompiler
-      let pubCtxt = tfield "title" pTitle
-                 <> mfield "url" pUrl
-                 <> tfield "authors" pAuthors
-                 <> tfield "venue" pVenue
-                 <> mfield "extra" pExtra
-      let pubsCtxt = listField "publications" pubCtxt (return pubs)
-      let defCtxt = constField "is-publications" "true"
-                 <> constField "title" "SILC: Publications"
-                 <> defaultContext
-      makeItem "" >>= loadAndApplyTemplate "templates/publications.html" pubsCtxt
-                  >>= loadAndApplyTemplate "templates/base.html" defCtxt
-                  >>= relativizeUrls
+    let defCtxt = constField "is-publications" "true"
+               <> constField "title" "SILC: Publications"
+               <> defaultContext
+    compile $ yamlCompiler
+      >>= loadAndApplyTemplate "templates/publications.html" (listOfCtxt "publications" pubCtxt)
+      >>= loadAndApplyTemplate "templates/base.html" defCtxt
+      >>= relativizeUrls
 
   -- Build people page from YAML data
   match "people.yaml" $ do
     route $ composeRoutes (setExtension ".html") appendIndex
-    compile $ do
-      people <- sequenceA <$> yamlCompiler
-      let personCtxt = tfield "name" rName
-                    <> tfield "role" rTitle
-                    <> tfield "homepage" rHomepage
-                    <> tfield "photo" rPhoto
-      let (currentPeople, formerPeople) = List.partition (rCurrent . itemBody) people
-      let peopleCtxt = listField "current-people" personCtxt (return currentPeople)
-                       <> listField "former-people" personCtxt (return formerPeople)
-      let defCtxt = constField "is-people" "true"
-                 <> constField "title" "SILC: People"
-                 <> defaultContext
-      makeItem "" >>= loadAndApplyTemplate "templates/people.html" peopleCtxt
-                  >>= loadAndApplyTemplate "templates/base.html" defCtxt
-                  >>= relativizeUrls
+    let defCtxt = constField "is-people" "true"
+               <> constField "title" "SILC: People"
+               <> defaultContext
+    compile $ yamlCompiler
+      >>= loadAndApplyTemplate "templates/people.html" peopleCtxt
+      >>= loadAndApplyTemplate "templates/base.html" defCtxt
+      >>= relativizeUrls
 
   -- Build templates (used by the above)
   match "templates/*" $ compile templateBodyCompiler
+
+personCtxt :: Context Person
+personCtxt = tfield "name" rName
+             <> tfield "role" rTitle
+             <> tfield "homepage" rHomepage
+             <> tfield "photo" rPhoto
+
+groupCtxt :: Context (Text, [Person])
+groupCtxt = tfield "group" fst
+         <> (contramap snd $ listOfCtxt "people" personCtxt)
+
+contramap :: (a -> b) -> Context b -> Context a
+contramap f (Context c) = Context $ \s ss i -> c s ss (f <$> i)
+
+peopleCtxt :: Context [Person]
+peopleCtxt = listFieldWith "groups" groupCtxt (return . traverse separate)
+  where separate :: [Person] -> [(Text, [Person])]
+        separate ppl = let (currentPeople, formerPeople) = List.partition rCurrent ppl
+                       in [("Current Members", currentPeople), ("Former Members", formerPeople)]
+
+
+pubCtxt :: Context Publication
+pubCtxt = tfield "title" pTitle
+       <> mfield "url" pUrl
+       <> tfield "authors" pAuthors
+       <> tfield "venue" pVenue
+       <> mfield "extra" pExtra
+
+listOfCtxt :: String -> Context a -> Context [a]
+listOfCtxt s ctx = listFieldWith s ctx (return . sequenceA)
 
 -- NOTE(dbp 2017-07-14): The blaze html library makes it difficult (possibly
 -- impossible?) to easily manipulate tags, so since we are really just trying to get rid of an extraneous wrapping <p>, we render and then do it in text.
@@ -100,11 +117,12 @@ mfield s f = field s (maybe (fail "") (return . unpack . md) . f . itemBody)
 
 yamlCompiler :: (FromJSON a) => Compiler (Item a)
 yamlCompiler = do
-      pubpath <- getResourceFilePath
-      res <- unsafeCompiler $ Yaml.decodeFileEither pubpath
-      case res of
-        Left err -> error $ "Couldn't parse " <> pubpath <> ". Error: " <> show err
-        Right parsed -> return $ Item "" parsed
+  path <- getResourceFilePath
+  rawItem <- getResourceLBS
+  for rawItem $ \raw ->
+    case Yaml.decodeEither . LBS.toStrict $ raw of
+      Left err     -> error $ "Failed to parse " <> path <> " : " <> show err
+      Right parsed -> return parsed
 
 data Publication = Publication { pTitle :: Text
                                , pUrl :: Maybe Text
