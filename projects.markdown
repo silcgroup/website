@@ -33,12 +33,19 @@ voluptas nulla pariatur?
  
 ## Semantic Foundations for Gradual Typing
 
-dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-qui officia deserunt mollit anim id est laborum.
+Gradual typing allows for interoperability of sound statically typed
+code and dynamically typed code, and the gradual addition of static
+types to existing dynamically typed programs.
+While much progress has been made on gradual typing for simple type
+systems, work on more advanced features such as parametricity,
+refinements etc. is complex and ad hoc.
+We have recently discovered a new category-theoretic semantics of
+gradual typing that shows that most of the cast semantics of gradually
+typed implementations is uniquely specified by extensionality and the
+gradual guarantee.
+We are now developing this semantics to apply it to these more
+advanced type features: justifying the ad hoc definitions previously
+proposed as being in fact canonical under certain constraints.
 
 
 
