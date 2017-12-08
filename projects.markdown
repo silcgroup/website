@@ -14,10 +14,10 @@ qui officia deserunt mollit anim id est laborum.
 
 ## Typed Compilation of Dependent Types
 Dependently typed languages such as Coq have been used to specify and prove the full
-functional correctness of software such as the CompCert optimizing C compiler ([Leroy 2009](#leroy2009)), the
-CertiKOS operating system kernel ([Gu et al. 2015](#gu2015), [Gu et al. 2016](#gu2016)), and the
-implementation of cryptographic primitives and protocols ([Barthe et al. 2009](#barthe2009), [Appel et
-al. 2015](#appel2015)).
+functional correctness of software such as the CompCert optimizing C compiler ([Leroy 2009][#leroy2009]), the
+CertiKOS operating system kernel ([Gu et al. 2015][#gu2015], [Gu et al. 2016][#gu2016]), and the
+implementation of cryptographic primitives and protocols ([Barthe et al. 2009][#barthe2009], [Appel et
+al. 2015][#appel2015]).
 
 Unfortunately, these verification efforts are all easily undone when linking with external components.
 Typically, Coq programs are translated to OCaml, a high-level functional language with a strong type
@@ -42,36 +42,17 @@ Girard's Paradox (the type-theoretic version of Russel's Paradox) and Gödel's i
 theorem.
 An impossibility result fifteen years ago showed that a known verified type-preserving compiler
 pass---the standard typed CPS translation---leads to Girard's paradox when used on dependently typed
-languages ([Barthe and Uustalu 2002](#barthe2002)).
+languages ([Barthe and Uustalu 2002][#barthe2002]).
 
 Our group has recently developed alternative type-preserving versions of the two major front-end
 compiler passes, including an alternative CPS translation that avoids Girard's paradox.
 
-#### Bibliography
-- <a name="appel2015">Appel, A. W.</a>
-  Verification of a Cryptographic Primitive: SHA-256
-  ACM Transactions on Programming Languages and Systems (TOPLAS), 2015, 37
-  http://doi.org/10.1145/2701415
-- <a name="barthe2002">Barthe, G. & Uustalu, T.</a>
-  CPS Translating Inductive and Coinductive Types
-  Workshop on Partial Evaluation and Semantics-based Program Manipulation (PEPM), 2002
-  http://doi.org/10.1145/509799.503043
-- <a name="barthe2009">Barthe, G.; Grégoire, B. & Zanella-Béguelin, S.</a>
-  Formal Certification of Code-based Cryptographic Proofs
-  Symposium on Principles of Programming Languages (POPL), 2009
-  http://doi.org/10.1145/1480881.1480894
-- <a name="gu2015">Gu, R.; Koenig, J.; Ramananandro, T.; Shao, Z.; Wu, X. (n.; Weng, S.-c.; Zhang, H. & Guo, Y.</a>
-  Deep Specifications and Certified Abstraction Layers
-  Symposium on Principles of Programming Languages (POPL), 2015
-  http://doi.org/10.1145/2775051.2676975
-- <a name="gu2016">Gu, R.; Shao, Z.; Chen, H.; Wu, X. (N.; Kim, J.; Sjöberg, V. & Costanzo, D.</a>
-  CertiKOS: An Extensible Architecture for Building Certified Concurrent OS Kernels
-  Symposium on Operating Systems Design and Implementation (OSDI), 2016
-  https://www.usenix.org/conference/osdi16/technical-sessions/presentation/gu
-- <a name="leroy2009">Leroy, X.</a>
-  A Formally Verified Compiler Back-end
-  Journal of Automated Reasoning, 2009, 43
-  http://doi.org/10.1007/s10817-009-9155-4
+[#appel2015]: http://doi.org/10.1145/2701415 "Verification of a Cryptographic Primitive: SHA-256"
+[#barthe2002]: http://doi.org/10.1145/509799.503043 "CPS Translating Inductive and Coinductive Types"
+[#barthe2009]: http://doi.org/10.1145/1480881.1480894 "Formal Certification of Code-based Cryptographic Proofs"
+[#gu2015]: http://doi.org/10.1145/2775051.2676975  "Deep Specifications and Certified Abstraction Layers"
+[#gu2016]: https://www.usenix.org/conference/osdi16/technical-sessions/presentation/gu  "CertiKOS: An Extensible Architecture for Building Certified Concurrent OS Kernels"
+[#leroy2009]: http://doi.org/10.1007/s10817-009-9155-4 "A Formally Verified Compiler Back-end"
 
 ## Linking Types 
 
