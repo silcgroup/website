@@ -36,16 +36,16 @@ Safe linking is guaranteed through type checking in the target language.
 
 Type preservation for dependent types is a fundamentally hard problem and has been stalled for fifteen
 years.
-Dependent type theory has been used a foundation for mathematics analogous to set theory.
+Dependent type theory has been used as a foundation for mathematics analogous to set theory.
 Every standard compiler design decision must also avoid running afoul of fundamental problems such as
 Girard's Paradox (the type-theoretic version of Russel's Paradox) and Gödel's incompleteness
 theorem.
-An impossibility result fifteen years ago showed that a known verified type-preserving compiler
+An impossibility result in 2002 showed that a known verified type-preserving compiler
 pass---the standard typed CPS translation---leads to Girard's paradox when used on dependently typed
 languages ([Barthe and Uustalu 2002][#barthe2002]).
 
-Our group has recently developed alternative type-preserving versions of the two major front-end
-compiler passes, including an alternative CPS translation that avoids Girard's paradox.
+Our group has recently developed an alternative CPS translation that avoids Girard's paradox
+([Bowman et al. 2018][#bowman2018]), and is working on a second major compiler pass.
 
 [#appel2015]: http://doi.org/10.1145/2701415 "Verification of a Cryptographic Primitive: SHA-256"
 [#barthe2002]: http://doi.org/10.1145/509799.503043 "CPS Translating Inductive and Coinductive Types"
@@ -53,6 +53,7 @@ compiler passes, including an alternative CPS translation that avoids Girard's p
 [#gu2015]: http://doi.org/10.1145/2775051.2676975  "Deep Specifications and Certified Abstraction Layers"
 [#gu2016]: https://www.usenix.org/conference/osdi16/technical-sessions/presentation/gu  "CertiKOS: An Extensible Architecture for Building Certified Concurrent OS Kernels"
 [#leroy2009]: http://doi.org/10.1007/s10817-009-9155-4 "A Formally Verified Compiler Back-end"
+[#bowman2018]: https://www.williamjbowman.com/papers/#cps-sigma "Type-Preserving CPS for Σ and Π Types is Not Not Possible"
 
 ## Linking Types 
 
