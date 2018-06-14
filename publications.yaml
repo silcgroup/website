@@ -1,3 +1,19 @@
+- title: "Graduality from Embedding-Projection Pairs"
+  authors: Max S. New and Amal Ahmed
+  venue: _23nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’18)_, St. Louis, USA, September 2018
+
+- title: "Call-by-name Gradual Type Theory"
+  authors: Max S. New and Daniel R. Licata
+  venue: _3rd International Conference on Formal Structures for Computation and Deduction (FSCD ’18)_, Oxford, UK, July 2018
+
+- title: "Typed Closure Conversion of the Calculus of Constructions"
+  authors: William J. Bowman and Amal Ahmed
+  venue: _ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’18)_, Philadelphia, USA, June 2018
+
+- title: "Type-Preserving CPS Translation of Σ and Π Types is Not Not Possible."
+  authors: William J. Bowman, Youyou Cong, Nick Rioux, and Amal Ahmed
+  venue: _45th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL ’18)_, Los Angeles, USA, January 2018
+
 - title: "Theorems for Free for Free: Parametricity, With and Without Types."
   authors: Amal Ahmed, Dustin Jamner, Jeremy Siek, and Philip Wadler
   venue: _22nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’17)_, Oxford, UK, September 2017
