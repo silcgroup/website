@@ -1,20 +1,37 @@
 - title: "Graduality from Embedding-Projection Pairs"
+  url: "http://www.ccs.neu.edu/home/amal/papers/graduality.pdf"
   authors: Max S. New and Amal Ahmed
   venue: _23nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’18)_, St. Louis, USA, September 2018
 
+- title: "Rust Distilled: An Expressive Tower of Languages"
+  url: "https://aaronweiss.us/pubs/ml18.pdf"
+  authors: Aaron Weiss, Daniel Patterson, and Amal Ahmed
+  venue: _ML Family Workshop (ML '18)_, St. Louis, USA, September 2018
+  
 - title: "Call-by-name Gradual Type Theory"
+  url: "http://drops.dagstuhl.de/opus/volltexte/2018/9194/"
   authors: Max S. New and Daniel R. Licata
   venue: _3rd International Conference on Formal Structures for Computation and Deduction (FSCD ’18)_, Oxford, UK, July 2018
+  extra: '[Extended version](https://arxiv.org/abs/1802.00061)'
 
 - title: "Typed Closure Conversion of the Calculus of Constructions"
+  url: "http://www.ccs.neu.edu/home/amal/papers/closconvcc.pdf"
   authors: William J. Bowman and Amal Ahmed
   venue: _ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI ’18)_, Philadelphia, USA, June 2018
 
+- title: "FabULous Interoperability for ML and a Linear Language"
+  url: "https://link.springer.com/content/pdf/10.1007%2F978-3-319-89366-2_8.pdf"
+  authors: Gabriel Scherer, Max New, Nick Rioux, and Amal Ahmed
+  venue: _21st International Conference on Foundations of Software Science and and Computations Structures (FoSSaCS '18)_, Thessaloniki, Greece, April 2018
+  extra: '[Full version](https://arxiv.org/pdf/1707.04984.pdf)'
+  
 - title: "Type-Preserving CPS Translation of Σ and Π Types is Not Not Possible."
+  url: "http://www.ccs.neu.edu/home/amal/papers/cpscc.pdf"
   authors: William J. Bowman, Youyou Cong, Nick Rioux, and Amal Ahmed
   venue: _45th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL ’18)_, Los Angeles, USA, January 2018
 
 - title: "Theorems for Free for Free: Parametricity, With and Without Types."
+  url: "http://www.ccs.neu.edu/home/amal/papers/thmfreefree.pdf"
   authors: Amal Ahmed, Dustin Jamner, Jeremy Siek, and Philip Wadler
   venue: _22nd ACM SIGPLAN International Conference on Functional Programming (ICFP ’17)_, Oxford, UK, September 2017
 
