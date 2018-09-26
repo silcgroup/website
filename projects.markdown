@@ -66,7 +66,7 @@ programmer is forced to think about the details of particular compilers and
 low-level implementations, and to reason about the target code that her compiler
 generates.
 
-With Linking Types ([Patterson and Ahmed, 2017]), we propose that language
+With Linking Types ([Patterson and Ahmed, 2017][lt-snapl]), we propose that language
 designers incorporate linking into their language designs and provide
 programmers a means to specify linking with behavior and types inexpressible in
 their language. There are many challenges in how to design linking types,
@@ -75,6 +75,8 @@ this challenge can we reach what has long been promised—an ecosystem of
 languages, each suited to a particular task yet stitched together seamlessly
 into a single large software project.
  
+[lt-snapl]: https://dbp.io/pubs/2017/linking-types.pdf
+
  
 ## Semantics of Sound Gradual Typing
 
