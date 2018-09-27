@@ -107,3 +107,31 @@ Guarantee* (introduced in  [Siek, Vitousek, Cimini, Boyland, 2015][refined])
 
 [grad-poly]: https://dl.acm.org/citation.cfm?doid=3136534.3110283
 [refined]: http://snapl.org/2015/abstracts/full/Siek.html
+
+## The Essence of Rust
+
+Rust represents a major advancement in production programming languages because
+of its success in bridging the gap between *high-level* application programming
+and *low-level* systems programming. At the heart of its design lies a novel
+approach to *ownership* that remains highly programmable.
+
+In this ongoing work ([Weiss, Patterson, Ahmed, 2018][oxide-ml]), we are
+designing a formal semantics for Rust that captures ownership and borrowing
+without a separate lifetime analysis. This semantics models a high-level
+understanding of ownership and as a result is close to source-level Rust (but
+with some elaboration) which differs from the recent RustBelt effort that
+essentially models MIR, a CPS-style IR used in the Rust compiler. Further,
+while RustBelt aims to verify the safety of unsafe code in Rust’s standard
+library, we model standard library APIs as primitives, which is sufficient to
+reason about their behavior. This yields a simpler model of Rust and its type
+system that we think researchers will find easier to use as a starting point
+for investigating Rust extensions. Unlike RustBelt, we aim to prove type
+soundness using *progress and preservation* instead of a Kripke logical
+relation. Finally, our semantics is a family of languages of increasing
+*expressive power*, where subsequent levels have features that are impossible
+to define in previous levels. Following Felleisen, expressive power is defined
+in terms of *observational equivalence*. Separating the language into different
+levels of expressive power should provide a framework for future work on Rust
+verification and compiler optimization.
+
+[oxide-ml]: https://aaronweiss.us/pubs/ml18.pdf
