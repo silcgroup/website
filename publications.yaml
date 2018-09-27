@@ -61,3 +61,20 @@
   url: "http://www.ccs.neu.edu/home/amal/papers/verifcomp.pdf"
   authors: Amal Ahmed
   venue: "_SNAPL: Summit on Advances in Programming Languages (SNAPL'15)_, May 2015"
+
+- title: "Verifying an Open Compiler Using Multi-Language Semantics"
+  url: http://www.ccs.neu.edu/home/amal/papers/voc.pdf
+  authors: Jamie Perconti and Amal Ahmed
+  venue: _23rd European Symposium on Programming (ESOP '14)_, Grenoble, France, April 2014
+  extra: '[Technical report](http://www.ccs.neu.edu/home/amal/papers/Doc-tr.pdf)'
+
+- title: "An Equivalence-Preserving CPS Translation via Multi-Language Semantics"
+  url: http://www.ccs.neu.edu/home/amal/papers/epc.pdf
+  authors: Amal Ahmed and Matthias Blume
+  venue: _16th ACM SIGPLAN International Conference on Functional Programming (ICFP '11)_, pp. 431-444, Tokyo, Japan, September 2011
+  extra: '[Technical appendix](http://www.ccs.neu.edu/home/amal/papers/epc-tr.pdf)'
+
+- title: Blame for All
+  url: http://plt.eecs.northwestern.edu/blame-for-all/
+  authors: Amal Ahmed, Robert Bruce Findler, Jeremy Siek, and Philip Wadler
+  venue: _38th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL '11)_, pp. 201-214, Austin, Texas, USA, January 2011

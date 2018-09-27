@@ -92,6 +92,10 @@ ul#nav {
     clear: both;
 }
 
+.small {
+    font-size: 0.8em;
+}
+
 /* PAGE SPECIFIC */
 
 ul.publications li {
