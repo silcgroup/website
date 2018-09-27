@@ -33,7 +33,7 @@ In pursuit of this vision, we have made progress on challenging problems
 in a number of areas relevant to correct and secure compilation in
 the setting of multi-language software.
 
-- Language interoperability, compiler correctness, and gradual typing:
+- Language interoperability and compiler correctness:
 We take the point of view that 
 _compositional compiler correctness is a language
 interoperability problem_ ([Ahmed 2015][#ahmed15:snapl]): embedding a
@@ -52,7 +52,7 @@ and (low-level) target code.  Our group has used _source-target
 multi-language semantics_ for the verification of several compiler
 transformations ([Perconti and Ahmed 2014][#perconti14], [Ahmed and Blume 2011][#ahmed11], [New et al. 2016][#new16], [Ahmed et al. 2016][#ahmed16]).
 
-- We have also done work on _gradual typing_---which 
+- Gradual typing: We have also done work on _gradual typing_---which 
 ensures safe interoperability between statically and dynamically typed
 code---in the presence of 
 polymorphism ([Matthews and Ahmed 2008][#matthews08], [Ahmed et al 2009][#ahmed09], [Ahmed et al 2011][#ahmed11], [New and Licata 2018][#newfscd18], [New and Ahmed 2018][#new18]).
