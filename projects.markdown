@@ -44,8 +44,9 @@ An impossibility result in 2002 showed that a known verified type-preserving com
 pass---the standard typed CPS translation---leads to Girard's paradox when used on dependently typed
 languages ([Barthe and Uustalu 2002][#barthe2002]).
 
-Our group has recently developed an alternative CPS translation that avoids Girard's paradox
-([Bowman et al. 2018][#bowman2018]), and is working on a second major compiler pass.
+Our group has recently developed an alternative CPS translation that avoids
+ paradoxes ([Bowman et al. 2018][#bowman2018]), and has developed a scalable
+ closure conversion pass.
 
 [#appel2015]: http://doi.org/10.1145/2701415 "Verification of a Cryptographic Primitive: SHA-256"
 [#barthe2002]: http://doi.org/10.1145/509799.503043 "CPS Translating Inductive and Coinductive Types"
