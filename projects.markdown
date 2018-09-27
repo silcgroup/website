@@ -38,15 +38,16 @@ Type preservation for dependent types is a fundamentally hard problem and has be
 years.
 Dependent type theory has been used as a foundation for mathematics analogous to set theory.
 Every standard compiler design decision must also avoid running afoul of fundamental problems such as
-Girard's Paradox (the type-theoretic version of Russel's Paradox) and Gödel's incompleteness
-theorem.
-An impossibility result in 2002 showed that a known verified type-preserving compiler
-pass---the standard typed CPS translation---leads to Girard's paradox when used on dependently typed
+Girard's Paradox (the type-theoretic version of Russel's Paradox).
+For instance, an impossibility result in 2002 showed that a known verified type-preserving compiler
+pass---the standard typed CPS translation---leads to a logical paradox when used on dependently typed
 languages ([Barthe and Uustalu 2002][#barthe2002]).
 
-Our group has recently developed an alternative CPS translation that avoids
- paradoxes ([Bowman et al. 2018][#bowman2018]), and has developed a scalable
- closure conversion pass.
+Our group has recently developed alternative CPS
+([Bowman et al. 2018][#bowman2018]) and closure conversion translations
+([Bowman and Ahmed 2018][#bowman2018cccc])
+for dependently typed languages that avoid paradoxes but accomplish the same
+goal as the standard versions of these compiler transformations.
 
 [#appel2015]: http://doi.org/10.1145/2701415 "Verification of a Cryptographic Primitive: SHA-256"
 [#barthe2002]: http://doi.org/10.1145/509799.503043 "CPS Translating Inductive and Coinductive Types"
@@ -55,6 +56,7 @@ Our group has recently developed an alternative CPS translation that avoids
 [#gu2016]: https://www.usenix.org/conference/osdi16/technical-sessions/presentation/gu  "CertiKOS: An Extensible Architecture for Building Certified Concurrent OS Kernels"
 [#leroy2009]: http://doi.org/10.1007/s10817-009-9155-4 "A Formally Verified Compiler Back-end"
 [#bowman2018]: https://www.williamjbowman.com/papers/#cps-sigma "Type-Preserving CPS for Σ and Π Types is Not Not Possible"
+[#bowman2018cccc]: https://www.williamjbowman.com/papers/#cccc "Typed Closure Conversion of the Calculus of Constructions"
 
 ## Linking Types 
 
