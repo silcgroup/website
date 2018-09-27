@@ -44,14 +44,15 @@ equivalence can be adjusted by modifying the rules governing
 interoperability (linking) in the multi-language system.  We have developed
 a novel specification of   
 compositional compiler correctness that requires that if a source 
-component $s$ compiles to a target component `t`, then `t` linked with
+component `s` compiles to a target component `t`, then `t` linked with
 some arbitrary target code `t'` should behave the same as `s`
 interoperating with `t'`.  To express the latter, we give a formal
 semantics of interoperability between (high-level) source components
 and (low-level) target code.  Our group has used _source-target
 multi-language semantics_ for the verification of several compiler
 transformations ([Perconti and Ahmed 2014][#perconti14], [Ahmed and Blume 2011][#ahmed11], [New et al. 2016][#new16], [Ahmed et al. 2016][#ahmed16]).
-We have also done work on _gradual typing_---which 
+
+- We have also done work on _gradual typing_---which 
 ensures safe interoperability between statically and dynamically typed
 code---in the presence of 
 polymorphism ([Matthews and Ahmed 2008][#matthews08], [Ahmed et al 2009][#ahmed09], [Ahmed et al 2011][#ahmed11], [New and Licata 2018][#newfscd18], [New and Ahmed 2018][#new18]).
