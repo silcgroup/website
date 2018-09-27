@@ -3,14 +3,57 @@ title: "SILC: Projects"
 is-projects: true
 ---
 
-<!-- ## Secure Compilation -->
+## Secure Compilation
 
-<!-- dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut -->
-<!-- labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud -->
-<!-- exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute -->
-<!-- irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat -->
-<!-- nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa -->
-<!-- qui officia deserunt mollit anim id est laborum.  -->
+Statically typed programming languages typically provide strong
+information-hiding guarantees to the programmer, e.g., Java guarantees that
+information in a private field will remain hidden from all clients of the object
+and _security-typed languages_ guarantee that data tagged as high-security
+(confidential) will remain hidden from low-security clients.  When building
+secure software systems, programmers rely on such language-provided abstractions
+and on the assumption that any attackers---i.e., code that their software
+component might be linked with---will be bound by the rules of the programming
+language.  However, after compilation, a component may be linked with
+target-level attackers that can invalidate source-level security guarantees by
+doing things impossible in the source, such as reading the compiled component's
+private data, modifying the component's control flow, and even modifying code
+implementing the component's methods.
+
+Secure compilation requires that compilers preserve source-level security and
+abstraction guarantees---i.e., target clients (attackers) should not be able to
+learn information from interacting with compiled component unless source clients
+can learn the same information from interacting with the original source
+components. Such compilers are called _fully abstract_.
+
+While existing work achieves secure compilation using _dynamic checks_ to
+guard interactions between compiled components and target-level clients
+(attackers), our group has focused on leveraging _static checks_ to ensure
+that compiled code is only linked with target clients that respect source-level
+security and abstraction guarantees. 
+This is done via type-preserving compilers and carefully devising the compiler's
+type translation so any target client of translation type has no more
+observational power than source-language clients and ensuring via typechecking 
+that we only link with target clients of translation type. 
+Statically enforced secure compilation avoids the significant performance
+overhead associated with dynamic enforcement, as long as low-level clients can
+be verified (e.g., via type checking).
+
+A central challenge in this work is how to _prove_ that compilation
+is secure.  The proof requires showing that any target client a compiled
+component may be linked with can be _back-translated_ to a behaviorally
+equivalent source client. Back-translation---and, hence, secure
+compilation---has long been considered impossible for realistic compilers since
+their target languages usually contain features inexpressible in the source.  In
+recent years, we have developed back-translation techniques for increasingly
+challenging source and target language pairs, including target languages
+containing features unavailable in the
+source ([Ahmed and Blume 2008][#ahmed08], [Ahmed et al 2011][#ahmed11], [Bowman and Ahmed 2015][#bowman15], [New et al 2016][#new16]).
+These results put verification of realistic secure compilers within reach.
+
+[#ahmed08]: http://www.ccs.neu.edu/home/amal/papers/tccpoe.pdf
+[#ahmed11]: http://www.ccs.neu.edu/home/amal/papers/epc.pdf
+[#bowman15]: http://www.ccs.neu.edu/home/amal/papers/nifree.pdf
+[#new16]: http://www.ccs.neu.edu/home/amal/papers/fabcc.pdf
 
 ## Typed Compilation of Dependent Types
 Dependently typed languages such as Coq have been used to specify and prove the full
