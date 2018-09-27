@@ -111,6 +111,7 @@ mixed-language settings ([Matthews and Ahmed 2008][#matthews08], [Ahmed et al 20
 ## Research funding
 
 - NSF: Principled Compiling and Linking for Multi-Language Software ([CCF-1816837](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1816837&HistoricalAwards=false), 10/2018-9/2021)
+- NSF Graduate Research Fellowship for Aaron Weiss ([2017-2022](https://nsfgrfp.org))
 - NSF: Foundations of Just-in-Time Compilation ([CCF-1618732](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1618732&HistoricalAwards=false), 9/2016-8/2018)
 - NSF CAREER: Verified Compilers for a Multi-Language World ([CCF-1453796](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1453796&HistoricalAwards=false), 5/2015-4/2020)
 - NSF: Secure Compilation of Advanced Languages ([CCF-1422133](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1422133&HistoricalAwards=false), 8/2014-7/2017)
