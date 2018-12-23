@@ -33,3 +33,20 @@
   title: PhD Student
   homepage: "https://hyeyoungshin.github.io"
   photo: /static/img/people/hyeyoung_shin.jpg
+
+- name: Dustin Jamner
+  title: Undergrad Student
+  homepage: "https://github.com/DIJamner"
+  photo: /static/img/people/unknown.png
+
+- name: Nick Rioux
+  title: Former Undergrad
+  homepage: "https://scholar.google.com/citations?user=hrtzZP0AAAAJ"
+  photo: /static/img/people/unknown.png
+  current: false
+
+- name: Matt Kolosick
+  title: Former Undergrad 
+  homepage: "https://github.com/mkolosick"
+  photo: /static/img/people/unknown.png
+  current: false
